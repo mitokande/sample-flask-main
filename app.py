@@ -32,15 +32,15 @@ def mfi():
 
     client = Client(api_key = key, api_secret = secret)
     args = request.args
-    no1 = args['interval']
-    no2 = args['coin']
+    interval = args['interval']
+    coin = args['coin']
     
     data = switch(interval,coin)
 
     df = pd.DataFrame(data, columns=['date','open', 'high', 'low', 'close', 'volume','close_time', 'qav', 'num_trades',
                     'taker_base_vol', 'taker_quote_vol', 'ignore'])
     result = talib.MFI(df["high"], df["low"], df["close"], df["volume"], timeperiod=14)
-    return f'no {no1} no2 {no2}'
+    return f'no {interval} no2 {coin}'
 
 @app.route("/b")
 def b_world():
