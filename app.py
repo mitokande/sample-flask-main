@@ -19,18 +19,8 @@ def mfi():
     no1 = args['interval']
     no2 = args['coin']
     
-    match interval:
-        case "15m":
-            data = client.get_historical_klines(coin, Client.KLINE_INTERVAL_15MINUTE,start_str = "1 days ago UTC")
-        case "30m":
-            data = client.get_historical_klines(coin, Client.KLINE_INTERVAL_30MINUTE,start_str = "2 days ago UTC")
-        case "1h":
-            data = client.get_historical_klines(coin, Client.KLINE_INTERVAL_1HOUR,start_str = "4 days ago UTC")
-        case "4h":
-            data = client.get_historical_klines(coin, Client.KLINE_INTERVAL_4HOUR,start_str = "16 days ago UTC")
-        case "1d":
-            data = client.get_historical_klines(coin, Client.KLINE_INTERVAL_1DAY,start_str = "96 days ago UTC")
-    
+    data = client.get_historical_klines('BTCUSDT', Client.KLINE_INTERVAL_15MINUTE,start_str = "1 days ago UTC")
+
     df = pd.DataFrame(data, columns=['date','open', 'high', 'low', 'close', 'volume','close_time', 'qav', 'num_trades',
                     'taker_base_vol', 'taker_quote_vol', 'ignore'])
     result = talib.MFI(df["high"], df["low"], df["close"], df["volume"], timeperiod=14)
