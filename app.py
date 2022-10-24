@@ -23,8 +23,9 @@ def b_world():
 
     df = pd.DataFrame(data, columns=['date','open', 'high', 'low', 'close', 'volume','close_time', 'qav', 'num_trades',
                     'taker_base_vol', 'taker_quote_vol', 'ignore'])
-    
-    return (df['date'][0])
+    result = df['date'][0] + 5
+    b= 10
+    return f'a is {result} and b is {b}'
 
 @app.route("/c")
 def c_world():
