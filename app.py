@@ -7,6 +7,10 @@ from binance import Client
 app = Flask(__name__)
 
 def switch(interval,coin):
+    key = 'wrfybb7xo2Cvze0Ii0zOO8FNkWIX4UCIWtBdONPZH7PD5nmP10pWVGDig9zFuffF'
+    secret = 'oPEp31iGEumVcl9NLcDTkwq3Q8F3A653ua2QYy33N1puebUsTbNdQo5gc8kP4UOR'
+
+    client = Client(api_key = key, api_secret = secret)
     match interval:
         case "15m":
             return client.get_historical_klines(coin, Client.KLINE_INTERVAL_15MINUTE,start_str = "1 days ago UTC")
