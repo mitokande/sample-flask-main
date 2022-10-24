@@ -6,6 +6,7 @@ from binance import Client
 
 app = Flask(__name__)
 
+
 @app.route("/")
 def hello_world():
     return ("Hello World")
@@ -13,17 +14,10 @@ def hello_world():
 @app.route("/mfi")
 def mfi():
     args = request.args
-    interval = args['interval']
-    coin = args['coin']
+    no1 = args['interval']
+    no2 = args['coin']
     
-    key = 'wrfybb7xo2Cvze0Ii0zOO8FNkWIX4UCIWtBdONPZH7PD5nmP10pWVGDig9zFuffF'
-    secret = 'oPEp31iGEumVcl9NLcDTkwq3Q8F3A653ua2QYy33N1puebUsTbNdQo5gc8kP4UOR'
-
-    client = Client(api_key = key, api_secret = secret)
-
-    
-    
-    return f'no {no1} no2 {no2} '
+    return f'no {no1} no2 {no2}'
 
 @app.route("/b")
 def b_world():
