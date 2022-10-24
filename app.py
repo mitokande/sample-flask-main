@@ -24,7 +24,7 @@ def b_world():
     df = pd.DataFrame(data, columns=['date','open', 'high', 'low', 'close', 'volume','close_time', 'qav', 'num_trades',
                     'taker_base_vol', 'taker_quote_vol', 'ignore'])
     
-    return (df['date'][0] , " asd")
+    return (df['date'][0])
 
 @app.route("/c")
 def c_world():
