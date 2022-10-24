@@ -16,7 +16,8 @@ def mfi():
     args = request.args
     no1 = args['interval']
     no2 = args['coin']
-    return jsonify(dict(data=[no1, no2]))
+    return f'no {no1} no2 {no2}'
+
 @app.route("/b")
 def b_world():
     key = 'wrfybb7xo2Cvze0Ii0zOO8FNkWIX4UCIWtBdONPZH7PD5nmP10pWVGDig9zFuffF'
