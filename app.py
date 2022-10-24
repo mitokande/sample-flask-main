@@ -44,7 +44,8 @@ def mfi():
     df = pd.DataFrame(data, columns=['date','open', 'high', 'low', 'close', 'volume','close_time', 'qav', 'num_trades',
                     'taker_base_vol', 'taker_quote_vol', 'ignore'])
     result = talib.MFI(df["high"], df["low"], df["close"], df["volume"], timeperiod=14)
-    return f'no {interval} no2 {coin}'
+    # return f'no {interval} no2 {coin}'
+    return {value: result[-1:]}
 
 @app.route("/b")
 def b_world():
