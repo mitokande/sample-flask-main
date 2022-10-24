@@ -5,8 +5,6 @@ import talib
 from binance import Client
 
 app = Flask(__name__)
-key = 'wrfybb7xo2Cvze0Ii0zOO8FNkWIX4UCIWtBdONPZH7PD5nmP10pWVGDig9zFuffF'
-secret = 'oPEp31iGEumVcl9NLcDTkwq3Q8F3A653ua2QYy33N1puebUsTbNdQo5gc8kP4UOR'
 
 @app.route("/")
 def hello_world():
@@ -14,9 +12,13 @@ def hello_world():
 
 @app.route("/mfi")
 def mfi():
+    key = 'wrfybb7xo2Cvze0Ii0zOO8FNkWIX4UCIWtBdONPZH7PD5nmP10pWVGDig9zFuffF'
+    secret = 'oPEp31iGEumVcl9NLcDTkwq3Q8F3A653ua2QYy33N1puebUsTbNdQo5gc8kP4UOR'
+
     args = request.args
     no1 = args['interval']
     no2 = args['coin']
+    data;
     match interval:
         case "15m":
             data = client.get_historical_klines(coin, Client.KLINE_INTERVAL_15MINUTE,start_str = "1 days ago UTC")
