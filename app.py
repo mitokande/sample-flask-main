@@ -45,9 +45,7 @@ def mfi():
                     'taker_base_vol', 'taker_quote_vol', 'ignore'])
     result = talib.MFI(df["high"], df["low"], df["close"], df["volume"], timeperiod=14)
     # return f'no {interval} no2 {coin}'
-    return jsonify(
-        value=result[-1:]
-    )
+    return f'{result[-1:]}'
 
 @app.route("/b")
 def b_world():
