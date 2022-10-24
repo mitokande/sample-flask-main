@@ -18,7 +18,7 @@ def mfi():
     args = request.args
     no1 = args['interval']
     no2 = args['coin']
-    data;
+    
     match interval:
         case "15m":
             data = client.get_historical_klines(coin, Client.KLINE_INTERVAL_15MINUTE,start_str = "1 days ago UTC")
