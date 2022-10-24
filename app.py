@@ -12,7 +12,7 @@ def hello_world():
     return ("Hello World")
 
 @app.route("/b")
-def bye_world():
+def b_world():
     key = 'wrfybb7xo2Cvze0Ii0zOO8FNkWIX4UCIWtBdONPZH7PD5nmP10pWVGDig9zFuffF'
     secret = 'oPEp31iGEumVcl9NLcDTkwq3Q8F3A653ua2QYy33N1puebUsTbNdQo5gc8kP4UOR'
 
@@ -27,7 +27,7 @@ def bye_world():
     return (df['date'][0] , " asd")
 
 @app.route("/c")
-def bye_world():
+def c_world():
     key = 'wrfybb7xo2Cvze0Ii0zOO8FNkWIX4UCIWtBdONPZH7PD5nmP10pWVGDig9zFuffF'
     secret = 'oPEp31iGEumVcl9NLcDTkwq3Q8F3A653ua2QYy33N1puebUsTbNdQo5gc8kP4UOR'
 
@@ -42,7 +42,7 @@ def bye_world():
     return (df['date'][0] , " asd")
 
 @app.route("/d")
-def bye_world():
+def d_world():
     key = 'wrfybb7xo2Cvze0Ii0zOO8FNkWIX4UCIWtBdONPZH7PD5nmP10pWVGDig9zFuffF'
     secret = 'oPEp31iGEumVcl9NLcDTkwq3Q8F3A653ua2QYy33N1puebUsTbNdQo5gc8kP4UOR'
 
