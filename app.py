@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from flask import render_template
 import pandas as pd
 import talib
@@ -11,6 +11,12 @@ app = Flask(__name__)
 def hello_world():
     return ("Hello World")
 
+@app.route("/mfi")
+def mfi():
+    args = request.args
+    no1 = args['interval']
+    no2 = args['coin']
+    return jsonify(dict(data=[no1, no2]))
 @app.route("/b")
 def b_world():
     key = 'wrfybb7xo2Cvze0Ii0zOO8FNkWIX4UCIWtBdONPZH7PD5nmP10pWVGDig9zFuffF'
