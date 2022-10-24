@@ -24,4 +24,34 @@ def bye_world():
     df = pd.DataFrame(data, columns=['date','open', 'high', 'low', 'close', 'volume','close_time', 'qav', 'num_trades',
                     'taker_base_vol', 'taker_quote_vol', 'ignore'])
     
-    return "<p>Hello, World!</p>"
+    return (df['date'][0] , " asd")
+
+@app.route("/c")
+def bye_world():
+    key = 'wrfybb7xo2Cvze0Ii0zOO8FNkWIX4UCIWtBdONPZH7PD5nmP10pWVGDig9zFuffF'
+    secret = 'oPEp31iGEumVcl9NLcDTkwq3Q8F3A653ua2QYy33N1puebUsTbNdQo5gc8kP4UOR'
+
+    client = Client(api_key = key, api_secret = secret)
+
+    data = client.get_historical_klines('BTCUSDT', Client.KLINE_INTERVAL_1MINUTE,start_str = "15 minutes ago UTC")
+    #datah
+
+    df = pd.DataFrame(data, columns=['date','open', 'high', 'low', 'close', 'volume','close_time', 'qav', 'num_trades',
+                    'taker_base_vol', 'taker_quote_vol', 'ignore'])
+    print(df['date'][0] , " asd")
+    return (df['date'][0] , " asd")
+
+@app.route("/d")
+def bye_world():
+    key = 'wrfybb7xo2Cvze0Ii0zOO8FNkWIX4UCIWtBdONPZH7PD5nmP10pWVGDig9zFuffF'
+    secret = 'oPEp31iGEumVcl9NLcDTkwq3Q8F3A653ua2QYy33N1puebUsTbNdQo5gc8kP4UOR'
+
+    client = Client(api_key = key, api_secret = secret)
+
+    data = client.get_historical_klines('BTCUSDT', Client.KLINE_INTERVAL_1MINUTE,start_str = "15 minutes ago UTC")
+    #datah
+
+    df = pd.DataFrame(data, columns=['date','open', 'high', 'low', 'close', 'volume','close_time', 'qav', 'num_trades',
+                    'taker_base_vol', 'taker_quote_vol', 'ignore'])
+    print(df['date'][0] , " asd")
+    return (" asd")
