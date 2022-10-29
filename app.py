@@ -101,6 +101,43 @@ def sma():
     # return f'no {interval} no2 {coin}'
     return f'{result[-1:]}'
 
+@app.route("/rsi")
+def rsi():
+    key = 'wrfybb7xo2Cvze0Ii0zOO8FNkWIX4UCIWtBdONPZH7PD5nmP10pWVGDig9zFuffF'
+    secret = 'oPEp31iGEumVcl9NLcDTkwq3Q8F3A653ua2QYy33N1puebUsTbNdQo5gc8kP4UOR'
+
+    client = Client(api_key = key, api_secret = secret)
+    args = request.args
+    interval = args['interval']
+    coin = args['coin']
+    
+    data = switch(interval,coin)
+
+    df = pd.DataFrame(data, columns=['date','open', 'high', 'low', 'close', 'volume','close_time', 'qav', 'num_trades',
+                    'taker_base_vol', 'taker_quote_vol', 'ignore'])
+    result = talib.RSI(df["close"], timeperiod=14)
+    # return f'no {interval} no2 {coin}'
+    return f'{result[-1:]}'
+
+app.route("/mom")
+def mom():
+    key = 'wrfybb7xo2Cvze0Ii0zOO8FNkWIX4UCIWtBdONPZH7PD5nmP10pWVGDig9zFuffF'
+    secret = 'oPEp31iGEumVcl9NLcDTkwq3Q8F3A653ua2QYy33N1puebUsTbNdQo5gc8kP4UOR'
+
+    client = Client(api_key = key, api_secret = secret)
+    args = request.args
+    interval = args['interval']
+    coin = args['coin']
+    
+    data = switch(interval,coin)
+
+    df = pd.DataFrame(data, columns=['date','open', 'high', 'low', 'close', 'volume','close_time', 'qav', 'num_trades',
+                    'taker_base_vol', 'taker_quote_vol', 'ignore'])
+    result = talib.MOM(df["close"], timeperiod=10)
+    # return f'no {interval} no2 {coin}'
+    return f'{result[-1:]}'
+
+
 @app.route("/b")
 def b_world():
     key = 'wrfybb7xo2Cvze0Ii0zOO8FNkWIX4UCIWtBdONPZH7PD5nmP10pWVGDig9zFuffF'
